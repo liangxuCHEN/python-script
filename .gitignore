@@ -1,0 +1,6 @@
+#ignore .metadata
+*.pdf
+*.json
+settings.py
+*.txt
+
