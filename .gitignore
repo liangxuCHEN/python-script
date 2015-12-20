@@ -3,4 +3,5 @@
 *.json
 settings.py
 *.txt
+*.pyc
 
