@@ -2,17 +2,9 @@
 # -*- coding:utf-8 -*-
 from selenium import webdriver
 import time
-import os
-import sys
 import settings
+import tool
 from meminformation import meminfo
-
-def restart_program():  
-    """Restarts the current program. 
-    Note: this function does not return. Any cleanup action (like 
-    saving data) must be done before calling this function."""  
-    python = sys.executable  
-    os.execl(python, python, * sys.argv)
 
 def init():
     dirver = webdriver.Firefox()
@@ -44,6 +36,7 @@ if __name__ == "__main__":
     url = []
     text = []
     
+    logging = tool.log_init(file_name="qy_add_comment")
     name.append(settings.qy_login['ipiaoling']['name'])
     password.append(settings.qy_login['ipiaoling']['password'])
     url.append(u'http://bbs.qyer.com/thread-1080132-1.html')
@@ -65,11 +58,11 @@ if __name__ == "__main__":
         except:
             #answer = raw_input("Do you want to restart this program ? ")
             #if answer.strip() in "y Y yes Yes YES".split():
-            print 'the program has some problems, and it will restart after 1h'
+            logging.info('the program has some problems, and it will restart after 1h')
             mem_free = meminfo('MemFree')
-            print("Free memory:{0}".format(mem_free))
+            logging.info("Free memory:{0}".format(mem_free))
             time.sleep(3600)
-            restart_program()
+            tool.restart_program()
         
         time.sleep(10800)
         i = (1+i) % 2
