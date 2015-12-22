@@ -4,14 +4,22 @@ import os
 import sys
 from datetime import datetime
 
-def log_init(file_name=""):
+def log_init(model="", file_name=""):
     today = datetime.now()
     time_tmp = str(today).split(" ")
     timestamp = time_tmp[0]+"_"+time_tmp[1].split(".")[0]+"_"
+    
+    if (model == "a"):
+        if not os.path.isfile("log-txt/"+file_name+".txt"):
+            model = "w"
+            file_name = timestamp + file_name
+    else:
+         model = "w"
+         file_name = timestamp + file_name
     logging.basicConfig(
-        filename=os.path.join(os.getcwd(), "log-txt/"+timestamp+file_name+".txt"),
+        filename=os.path.join(os.getcwd(), "log-txt/"+file_name+".txt"),
         level=logging.INFO,
-        filemode="w",
+        filemode=model,
         format='%(asctime)s - %(levelname)s: %(message)s'
     )
     return logging

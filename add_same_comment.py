@@ -36,7 +36,7 @@ if __name__ == "__main__":
     url = []
     text = []
     
-    logging = tool.log_init(file_name="qy_add_comment")
+    logging = tool.log_init(model="a", file_name="qy_add_comment")
     name.append(settings.qy_login['ipiaoling']['name'])
     password.append(settings.qy_login['ipiaoling']['password'])
     url.append(u'http://bbs.qyer.com/thread-1080132-1.html')

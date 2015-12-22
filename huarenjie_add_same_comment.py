@@ -32,7 +32,7 @@ if __name__ == "__main__":
     url = []
     text = []
     
-    logging = tool.log_init(file_name="huarenjie_comment")
+    logging = tool.log_init(model="a", file_name="huarenjie_comment")
     name.append(settings.huarenjie_login['0']['name'])
     password.append(settings.huarenjie_login['0']['password'])
     url.append('http://www.huarenjie.com/thread-5296279-1-1.html')
